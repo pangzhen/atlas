@@ -358,9 +358,9 @@ public class AtlasIncrementalFileMergeTransformUtils {
 
         for (JarInput jarInput : transformInput.getJarInputs()) {
             if (awbTransform == null) {
-                if (!AtlasBuildContext.atlasMainDexHelperMap.get(name).getMainResFiles().containsKey(jarInput.getFile().getAbsolutePath())) {
-                    continue;
-                }
+                // if (!AtlasBuildContext.atlasMainDexHelperMap.get(name).getMainResFiles().containsKey(jarInput.getFile().getAbsolutePath())) {
+                //     continue;
+                // }
             } else {
                 if (!awbTransform.getLibraryResourcesInutDir().contains(jarInput.getFile())){
                     continue;
