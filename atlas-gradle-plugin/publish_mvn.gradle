@@ -175,26 +175,26 @@ publishing {
 
     repositories {
         mavenLocal()
-        if (publishToRemote) {
-            if (version.endsWith("-SNAPSHOT")) {
-                maven {
-                    url 'http://mvnrepo.alibaba-inc.com/nexus/content/repositories/snapshots'
-                    credentials {
-                        username = 'snapshotsAdmin'
-                        password = '123456'
-                    }
-                }
-            } else {
-                def accountMap = getAccount();
-                maven {
-                   url RELEASE_REPOSITORY_URL
-//                   credentials {
-//                       username = accountMap.get("username")
-//                       password = accountMap.get("password")
-//                   }
-                }
-            }
-        }
+//         if (publishToRemote) {
+//             if (version.endsWith("-SNAPSHOT")) {
+//                 maven {
+//                     url 'http://mvnrepo.alibaba-inc.com/nexus/content/repositories/snapshots'
+//                     credentials {
+//                         username = 'snapshotsAdmin'
+//                         password = '123456'
+//                     }
+//                 }
+//             } else {
+//                 def accountMap = getAccount();
+//                 maven {
+//                    url RELEASE_REPOSITORY_URL
+// //                   credentials {
+// //                       username = accountMap.get("username")
+// //                       password = accountMap.get("password")
+// //                   }
+//                 }
+//             }
+//         }
     }
 }
 
