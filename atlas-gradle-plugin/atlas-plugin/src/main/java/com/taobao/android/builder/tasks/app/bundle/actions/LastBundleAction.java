@@ -58,7 +58,7 @@ public class LastBundleAction implements Action<Task> {
             }
         }
 
-        if (appVariantOutputContext.getVariantData().getName().endsWith("debug")) {
+        // if (appVariantOutputContext.getVariantData().getName().endsWith("debug")) {
             if (awbBundles != null) {
                 for (Map.Entry<AwbBundle, File> entry : awbBundles.entrySet()) {
                     String url = AtlasBuildContext.atlasApkProcessor.uploadBundle(appVariantOutputContext.getVariantContext().getProject(), entry.getValue(), entry.getKey(), appVariantOutputContext.getVariantContext().getBuildType());
@@ -84,8 +84,8 @@ public class LastBundleAction implements Action<Task> {
                 e.printStackTrace();
             }
 
-        } else {
-            logger.info("do nothing when packageAwbs done in " + appVariantOutputContext.getVariantData().getName() + " build!");
-        }
+        // } else {
+        //     logger.info("do nothing when packageAwbs done in " + appVariantOutputContext.getVariantData().getName() + " build!");
+        // }
     }
 }
