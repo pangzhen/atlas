@@ -576,7 +576,7 @@ public class DelegateResources extends Resources {
                     /**
                      * 追加主apk新的assets内容
                      */
-                    if (sAssetsPatchDir != null) {
+                    if (sAssetsPatchDir != null && Build.VERSION.SDK_INT < 28) {
                         appendAssetPath(manager, sAssetsPatchDir, false);
                     }
                 }else{
@@ -740,7 +740,7 @@ public class DelegateResources extends Resources {
             /**
              * 追加主apk新的assets内容
              */
-            if(sAssetsPatchDir!=null){
+            if(sAssetsPatchDir!=null && Build.VERSION.SDK_INT < 28){
                 appendAssetPath(newAssetManager,sAssetsPatchDir,false);
             }
 
