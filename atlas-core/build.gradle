@@ -8,18 +8,20 @@ def commitTag = getEnvValue("commitTag", 'false')
 buildscript {
 
     repositories {
+        mavenLocal()
         mavenCentral()
         jcenter()
         google()
     }
 
     dependencies {
-        classpath "com.taobao.android:atlasplugin:3.0.1-rc55"
+        classpath "com.taobao.android:atlasplugin:3.0.1-rc81-fixP"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath "com.github.dcendents:android-maven-gradle-plugin:1.4.1"
     }
 }
 repositories {
+    mavenLocal()
     mavenCentral()
     jcenter()
 
@@ -29,7 +31,7 @@ repositories {
 group = 'com.taobao.android'
 description = """atlas_core"""
 String postFix = mini=='true' ? "-mini" : "";
-version "5.1.0.8-RC1"
+version "5.1.0.8-RC1-fixP"
 
 String getEnvValue(key, defValue) {
     def val = System.getProperty(key);
@@ -211,18 +213,18 @@ install {
 //    archives sourcesJar
 //}
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-bintray {
-    user = project.hasProperty('bintray.user') ? project.getProperty('bintray.user') : properties.getProperty("bintray.user")
-    key = project.hasProperty('bintray.apikey') ? project.getProperty('bintray.apikey') : properties.getProperty("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = "atlas" //发布到JCenter上的项目名字
-        websiteUrl = "https://github.com/alibaba/atlas"
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
+// Properties properties = new Properties()
+// properties.load(project.rootProject.file('local.properties').newDataInputStream())
+// bintray {
+//     user = project.hasProperty('bintray.user') ? project.getProperty('bintray.user') : properties.getProperty("bintray.user")
+//     key = project.hasProperty('bintray.apikey') ? project.getProperty('bintray.apikey') : properties.getProperty("bintray.apikey")
+//     configurations = ['archives']
+//     pkg {
+//         repo = "maven"
+//         name = "atlas" //发布到JCenter上的项目名字
+//         websiteUrl = "https://github.com/alibaba/atlas"
+//         vcsUrl = gitUrl
+//         licenses = ["Apache-2.0"]
+//         publish = true
+//     }
+// }
