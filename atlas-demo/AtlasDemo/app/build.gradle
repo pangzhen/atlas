@@ -36,14 +36,14 @@ android {
         }else{
         	buildConfigField "boolean", "API_ENV", "false"
         }
-        multiDexEnabled = false
+        multiDexEnabled = true
 
     }
     flavorDimensions 'api'
         productFlavors{
                 productA{
                     applicationId "com.crazyman.product.a"
-                    versionName "version-a-1.0"
+//                    versionName "version-a-1.0"
                 }
 
                 productB{
@@ -96,6 +96,7 @@ atlas {
         classInject false
         aaptConstantId true
         dataBindingBundles = ['com.taobao.databindbundle']
+        atlasMultiDex true
     }
 
     manifestOptions {
@@ -192,11 +193,12 @@ publishing {
     }
 }
 
+def buildType = getEnvValue("buildType", "debug");
 publishing {
     publications {
         maven(MavenPublication) {
-            artifact "${project.buildDir}/outputs/apk/debug/${project.name}-debug.ap"
-            artifactId "AP-debug"
+            artifact "${project.buildDir}/outputs/apk/productA/${buildType}/${project.name}-productA-${buildType}.ap"
+            artifactId "AP-${buildType}"
         }
     }
 }
